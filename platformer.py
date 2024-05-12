@@ -56,7 +56,18 @@ class Player(pygame.sprite.Sprite):
         self.fall_count = 0
         self.direction = "right"
 
-    def move(self):
+    def move(self, dx, dy):
+        self.x_vel += dx
+        self.y_vel += dy
+
+    def move_left(self, vel):
+        self.x_vel -= -vel
+        if self.direction != "left":
+            self.direction = "left"
+            self.animation_count = 0
+        
+
+    def hotkeys(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a] and self.rect.x > 0:
             self.rect.x -= self.x_vel
