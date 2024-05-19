@@ -299,14 +299,7 @@ finish = False
 while run_game:
 
     screen.blit(background, (0, 0))
-    for line in range(screen_H // 64 + 1):
-        pygame.draw.line(
-            screen, (255, 255, 255), (0, line * 64), (screen_W, line * 64), 2
-        )
-        for col in range(screen_W // 64 + 1):
-            pygame.draw.line(
-                screen, (255, 255, 255), (col * 64, 0), (col * 64, screen_H), 2
-            )
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run_game = False
